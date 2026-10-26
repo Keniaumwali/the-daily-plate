@@ -1,6 +1,6 @@
 # The Daily Plate
 
-**A modern food and recipe blog featuring delicious meals, simple cooking instructions, and a warm, welcoming design.**
+The Daily Plate shares simple, delicious recipes to inspire everyday cooking and bring people together through food.
 
 ## About the Project
 
@@ -44,22 +44,21 @@ the-daily-plate/
 
 1. Clone the repository:
 
-   ```bash
    git clone https://github.com/Keniaumwali/the-daily-plate.git
-   ```
 
 2. Open the project folder in Visual Studio Code.
 
 3. Open `index.html` in your browser, or use the VS Code Live Server extension.
 
-## Links
 
-- **GitHub repository:** https://github.com/Keniaumwali/the-daily-plate
-- **Live website:** To be added after deployment.
+## Live Website
 
-## Screenshot
+https://keniaumwali.github.io/the-daily-plate/
 
-Add a screenshot of the homepage here after capturing it.
+## Homepage Screenshot
+
+!The Daily Plate homepage (images/homepage-screenshot.png)
+
 
 ## Author
 
