@@ -1,7 +1,9 @@
 
+
 const recipeGrid = document.querySelector("#recipe-grid");
 const searchInput = document.querySelector("#recipe-search");
 const categoryButtons = document.querySelectorAll(".category-button");
+const resultsStatus = document.querySelector("#recipe-results-status");
 
 let selectedCategory = "All recipes";
 
@@ -74,6 +76,8 @@ function filterRecipes() {
   });
 
   renderRecipes(filteredRecipes);
+  resultsStatus.textContent =
+  `${filteredRecipes.length} recipes found.`;
 }
 
 // Filter as the visitor types
