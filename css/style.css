@@ -553,3 +553,51 @@ button:focus-visible {
     width: 92%;
   }
 }
+
+
+/* Recipe search bar */
+.recipe-search {
+  width: 100%;
+  max-width: 520px;
+  margin: 28px 0 30px;
+}
+
+.recipe-search label {
+  display: block;
+  margin-bottom: 10px;
+  color: var(--charcoal);
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.recipe-search input {
+  display: block;
+  width: 100%;
+  padding: 15px 18px;
+  border: 1px solid var(--border, #E9E1D6);
+  border-radius: 12px;
+  background: #FFFFFF;
+  color: var(--charcoal);
+  font: inherit;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.recipe-search input::placeholder {
+  color: #898B86;
+}
+
+.recipe-search input:focus {
+  border-color: var(--tomato);
+  box-shadow: 0 0 0 4px rgb(217 79 61 / 12%);
+}
+
+@media (max-width: 600px) {
+  .recipe-search {
+    margin: 22px 0 26px;
+  }
+
+  .recipe-search input {
+    padding: 13px 15px;
+  }
+}
