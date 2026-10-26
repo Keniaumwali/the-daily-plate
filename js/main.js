@@ -1,7 +1,20 @@
 
 const recipeGrid = document.querySelector("#recipe-grid");
+const searchInput = document.querySelector("#recipe-search");
+const categoryButtons = document.querySelectorAll(".category-button");
+
+let selectedCategory = "All recipes";
 
 function renderRecipes(recipeList) {
+  if (recipeList.length === 0) {
+    recipeGrid.innerHTML = `
+      <p class="no-recipes">
+        No recipes found. Try another search.
+      </p>
+    `;
+    return;
+  }
+
   recipeGrid.innerHTML = recipeList.map((recipe) => `
     <article class="recipe-card">
       <a
@@ -44,36 +57,41 @@ function renderRecipes(recipeList) {
   `).join("");
 }
 
+function filterRecipes() {
+  const searchTerm = searchInput.value.trim().toLowerCase();
 
-renderRecipes(recipes);
+  const filteredRecipes = recipes.filter((recipe) => {
+    const matchesCategory =
+      selectedCategory === "All recipes" ||
+      recipe.category === selectedCategory;
 
-// Select all category buttons
-const categoryButtons = document.querySelectorAll(".category-button");
+    const matchesSearch =
+      recipe.title.toLowerCase().includes(searchTerm) ||
+      recipe.description.toLowerCase().includes(searchTerm) ||
+      recipe.category.toLowerCase().includes(searchTerm);
 
-// Filter recipes when a category is clicked
+    return matchesCategory && matchesSearch;
+  });
+
+  renderRecipes(filteredRecipes);
+}
+
+// Filter as the visitor types
+searchInput.addEventListener("input", filterRecipes);
+
+// Filter when a category is selected
 categoryButtons.forEach((button) => {
   button.addEventListener("click", () => {
-    // Remove active style from all buttons
     categoryButtons.forEach((item) => {
       item.classList.remove("active");
     });
 
-    // Highlight the selected button
     button.classList.add("active");
+    selectedCategory = button.textContent.trim();
 
-    // Read the selected category
-    const selectedCategory = button.textContent.trim();
-
-    // Show all recipes or filter by category
-    if (selectedCategory === "All recipes") {
-      renderRecipes(recipes);
-    } else {
-      const filteredRecipes = recipes.filter((recipe) => {
-        return recipe.category === selectedCategory;
-      });
-
-      renderRecipes(filteredRecipes);
-    }
+    filterRecipes();
   });
 });
 
+// Show all recipes when the page loads
+filterRecipes();
