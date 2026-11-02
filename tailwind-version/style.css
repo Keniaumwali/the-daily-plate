@@ -1,0 +1,46 @@
+
+@import "tailwindcss";
+
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap");
+
+@theme {
+  --color-tomato: #d94f3d;
+  --color-tomato-dark: #b83c2d;
+  --color-cream: #fff5e8;
+  --color-sage: #91a78a;
+  --color-charcoal: #292d2a;
+  --color-muted: #6b706a;
+  --color-border: #e9e1d6;
+
+  --font-heading: "Playfair Display", Georgia, serif;
+  --font-body: "DM Sans", Arial, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--color-charcoal);
+  line-height: 1.6;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  outline: 3px solid var(--color-sage);
+  outline-offset: 4px;
+}
